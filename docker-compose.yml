@@ -1,0 +1,12 @@
+version: '3'
+services:
+  notion-mcp:
+    build: .
+    ports:
+      - "${PORT:-3000}:3000"
+    environment:
+      - NODE_ENV=production
+      - NOTION_API_TOKEN=${NOTION_API_TOKEN}
+    restart: unless-stopped 
+    stdin_open: true
+    tty: true
